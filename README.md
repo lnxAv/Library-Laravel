@@ -7,13 +7,17 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-<p>
-    Import the project inside your /Herd folder.
+
+<p align="center">
+    A small library app with Laravel blades.
 </p>
-<p>
-    Then Open terminal at folder location for installation.
-</p>
+
 ## Installation
+<ul>
+    <li>Import the project inside your /Herd folder</li>
+    <li>Open terminal at folder location for installation</li>
+</ul>
+
 # Step 1: Setup .env
 ```
 cp .env.example .env
