@@ -13,49 +13,67 @@ class BookController extends FileController
     // GET
     public function getBooks(Request $request)
     {
-        $data = $this->getFileData();
-        $search = request('search') ?? '';
-        $year = request('year') ?? '';
+        return apiResponder(function () use ($request) {
+            $data = $this->getFileData();
+            $search = request('search') ?? '';
+            $year = request('year') ?? '';
 
-        if((isset($search) && $search !== '') || (isset($year) && $year !== '')){
-            $data = array_filter($data, function ($book) use ($search, $year) {
-                $test = false;
-
-                $hasSearch = isset($search) && $search !== '';
-                $hasYear = isset($year) && $year !== '';
-
-                if($hasSearch && $hasYear){
+            if((isset($search) && $search !== '') || (isset($year) && $year !== '')){
+                $data = array_filter($data, function ($book) use ($search, $year) {
                     $test = false;
-                    if(str_starts_with($book['title'], $search) && str_starts_with($book['year'], $year)){
+
+                    $hasSearch = isset($search) && $search !== '';
+                    $hasYear = isset($year) && $year !== '';
+
+                    if($hasSearch && $hasYear){
+                        $test = false;
+                        if(str_starts_with($book['title'], $search) && str_starts_with($book['year'], $year)){
+                            $test = true;
+                        }
+                    }else if($hasSearch){
+                        if(str_starts_with($book['title'], $search)){
+                            $test = true;
+                        }
+                    }else if($hasYear){
+                        if(str_starts_with($book['year'], $year)){
+                            $test = true;
+                        }
+                    }else{
                         $test = true;
                     }
-                }else if($hasSearch){
-                    if(str_starts_with($book['title'], $search)){
-                        $test = true;
-                    }
-                }else if($hasYear){
-                    if(str_starts_with($book['year'], $year)){
-                        $test = true;
-                    }
-                }else{
-                    $test = true;
-                }
-                return $test;
-            });
-        }
-        // FILTER FUNCTIONS HERE
-        return response()->json($data);
+                    return $test;
+                });
+            }
+            // FILTER FUNCTIONS HERE
+            return $data;
+        });
+    }
+
+    public function getBooksSorted(Request $request){
+        return apiResponder(function () use ($request) {
+            $data = $this->getFileData();
+            $order = $request->order;
+            if($order === 'year'){
+                uasort($data, function($a, $b) {
+                    info(strtotime($a['updateDate']));
+                    return strtotime($a['updateDate']) - strtotime($b['updateDate']);
+                });
+            }
+            return $data;
+        });
     }
 
     public function getBooksById(Request $request)
     {
-        $data = $this->getFileData();
-        $isbn = $request->isbn;
-        if( isset($data[$isbn]) ){
-            return response()->json($data[$isbn]);
-        }else{
-            throw new \Exception('Book does not exist');
-        }
+        return apiResponder(function () use ($request) {
+            $data = $this->getFileData();
+            $isbn = $request->isbn;
+            if( isset($data[$isbn]) ){
+                return $data[$isbn];
+            }else{
+                throw new \Exception('Book does not exist');
+            }
+        });
     }
     // POST
     public function postBook(Request $request){
@@ -73,18 +91,19 @@ class BookController extends FileController
                 'image' => 'required|string|max:255',
                 'price' => 'required|string|max:255',
             ];
-            info($request->json()->all());
             $validator = Validator::make($request->json()->all(), $rules);
             if ($validator->passes()) {
                 $data = $this->getFileData();
-                $book = new Book($request->json()->all());
+                $today = date('Y/m/d H:i:s');;
+                $jsonBook = $request->json()->all();
+                $jsonBook['updateDate'] = $today;
+                $book = new Book($jsonBook);
                 // Check if book exists
                 if( isset($data[$book->isbn]) ){
                     throw new \Exception('Book already exists');
                     return null;
                 }
                 $data[$book->isbn] = $book->toArray();
-                info($data);
                 $this->putFileData($data);
                 return ['isbn' => $book->isbn];
             } else {

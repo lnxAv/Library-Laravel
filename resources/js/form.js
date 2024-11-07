@@ -1,3 +1,5 @@
+import { popup } from './functionalities.js';
+
 const form = document.getElementById('form-list');
 const fillFormButton = document.getElementById('fill-form');
 
@@ -16,7 +18,9 @@ function handlePostBook(e) {
         body: JSON.stringify(formData),
     })
         .then((response) => response.json())
-        .then((data) => console.log(data));
+        .then((data) => {
+            popup(data.error ? 'error' : 'success', data.message);
+        });
 }
 
 function randomString(fixedLength, hasSpaces) {

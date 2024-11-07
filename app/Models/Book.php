@@ -18,6 +18,7 @@ class Book extends Model
         $this->description = $obj['description'];
         $this->image = $obj['image'];
         $this->price = $obj['price'];
+        $this->updateDate = $obj['updateDate'];
     }
 
     public function toArray()
@@ -34,6 +35,7 @@ class Book extends Model
             "description" => $this->description,
             "image" => $this->image,
             "price" => $this->price,
+            "updateDate" => $this->updateDate,
         ];
     }
 }

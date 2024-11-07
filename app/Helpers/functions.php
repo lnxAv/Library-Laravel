@@ -18,21 +18,21 @@ function apiResponder($func)
             ]
         );
     } catch (\Exception $e) {
-        error($e->getMessage());
+        info($e->getMessage() .'ex');
         return response()->json([
             'error' => true,
             'message' => $e->getMessage(),
             'data' => null,
         ], 500);
     } catch (\Throwable $e) {
-        error($e->getMessage());
+        info($e->getMessage() . 'th');
         return response()->json([
             'error' => true,
             'message' => $e->getMessage(),
             'data' => null,
         ], 500);
     } catch (\Error $e) {
-        error($e->getMessage());
+        info($e->getMessage() . 'er');
         return response()->json([
             'error' => true,
             'message' => $e->getMessage(),

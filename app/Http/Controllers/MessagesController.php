@@ -28,6 +28,7 @@ class MessagesController extends FileController
                 'message' => 'required|string|max:255',
             ];
             $validator = Validator::make($request->json()->all(), $rules);
+            info($request->json()->all());
             if ($validator->passes()) {
                 $id = uniqid('message-');
                 $message = new Message($id, $request->json()->all());
@@ -53,7 +54,8 @@ class MessagesController extends FileController
             $rules = [
                 'id' => 'required|string|max:255',
             ];
-            $validator = Validator::make($request->json()->all(), $rules);
+            info($request->id);
+            $validator = Validator::make(['id' => $request->id], $rules);
             if ($validator->passes()) {
                 $data = $this->getFileData();
                 $id = $request->id;

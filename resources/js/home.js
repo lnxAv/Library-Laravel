@@ -25,7 +25,10 @@ function fetchBooks(search, year) {
     }
     fetch(api)
         .then((response) => response.json())
-        .then((data) => displayBooks(data));
+        .then((res) => {
+            const data = res.data;
+            displayBooks(data);
+        });
 }
 
 function displayBooks(books) {
