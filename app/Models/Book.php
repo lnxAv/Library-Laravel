@@ -6,25 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-    protected $fillable = [
-        'isbn',
-        'title',
-        'subtitle',
-        'author',
-        'publisher',
-        'published',
-        'pages',
-        'description',
-        'image',
-        'price',
-    ];
-
     public function __construct($obj){
         $this->isbn = $obj['isbn'];
         $this->title = $obj['title'];
         $this->subtitle = $obj['subtitle'];
         $this->author = $obj['author'];
         $this->publisher = $obj['publisher'];
+        $this->year = $obj['year'] ?? '';
         $this->published = $obj['published'];
         $this->pages = $obj['pages'];
         $this->description = $obj['description'];
@@ -40,6 +28,7 @@ class Book extends Model
             "subtitle" => $this->subtitle,
             "author" => $this->author,
             "publisher" => $this->publisher,
+            "year" => $this->year,
             "published" => $this->published,
             "pages" => $this->pages,
             "description" => $this->description,

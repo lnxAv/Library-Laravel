@@ -17,15 +17,28 @@ class BookController extends FileController
         $search = request('search') ?? '';
         $year = request('year') ?? '';
 
-        if(isset($search) || isset($year)){
-            info($year);
+        if((isset($search) && $search !== '') || (isset($year) && $year !== '')){
             $data = array_filter($data, function ($book) use ($search, $year) {
                 $test = false;
-                if(isset($search)){
-                    if(str_starts_with($book['title'], $search)){
-                        info($book['title']);
+
+                $hasSearch = isset($search) && $search !== '';
+                $hasYear = isset($year) && $year !== '';
+
+                if($hasSearch && $hasYear){
+                    $test = false;
+                    if(str_starts_with($book['title'], $search) && str_starts_with($book['year'], $year)){
                         $test = true;
                     }
+                }else if($hasSearch){
+                    if(str_starts_with($book['title'], $search)){
+                        $test = true;
+                    }
+                }else if($hasYear){
+                    if(str_starts_with($book['year'], $year)){
+                        $test = true;
+                    }
+                }else{
+                    $test = true;
                 }
                 return $test;
             });
