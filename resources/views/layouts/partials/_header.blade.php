@@ -5,20 +5,20 @@
         >
             {{ __('home.nav') }}
         </a>
-        <a class="flex-1 text-primary border-b-2 border-primary cursor-pointer hover:text-highlight hover:border-highlight"
+        <a class="text-nowrap flex-1 text-primary border-b-2 border-primary cursor-pointer hover:text-highlight hover:border-highlight"
             href="{{ route('contact') }}"
         >
-            {{ '/' . __('contact.nav') }}
+            {{ '/ ' . __('contact.nav') }}
         </a>
-        <a class="flex-1 text-primary border-b-2 border-primary cursor-pointer hover:text-highlight hover:border-highlight"
+        <a class="text-nowrap flex-1 text-primary border-b-2 border-primary cursor-pointer hover:text-highlight hover:border-highlight"
             href="{{ route('message') }}"
         >
-            {{ '/' . __('messages.nav') }}
+            {{ '/ ' . __('messages.nav') }}
         </a>
-        <a class="flex-1 text-primary border-b-2 border-primary cursor-pointer hover:text-highlight hover:border-highlight"
+        <a class="text-nowrap flex-1 text-primary border-b-2 border-primary cursor-pointer hover:text-highlight hover:border-highlight"
             href="{{ route('new') }}"
         >
-            {{ '/' . __('new.nav') }}
+            {{ '/ ' . __('new.nav') }}
         </a>
     </div>
     <div>
