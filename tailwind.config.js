@@ -11,8 +11,15 @@ export default {
     ],
     theme: {
         extend: {
+            colors: {
+                primary: 'var(--color-primary)',
+                secondary: 'var(--color-secondary)',
+                highlight: 'var(--color-highlight)',
+                offset: 'var(--color-offset)',
+            },
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                vcr: ['VCR OSD Mono', ...defaultTheme.fontFamily.sans],
             },
         },
     },

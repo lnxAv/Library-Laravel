@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --color-primary: black;
+    --color-secondary: white;
+    --color-highlight: rgb(220, 40, 40);
+    --color-offset: #d9d9d9;
+}
+
+@layer base {
+    @font-face {
+        font-family: 'VCR OSD Mono';
+        src: url('../fonts/VCR_OSD_MONO.ttf') format('truetype');
+    }
+
+    input[type="text"],
+    input[type="textarea"],
+    input[type="email"],
+    input[type="number"],
+    textarea {
+        @apply px-4 py-2 rounded-md text-sm font-medium text-left text-black bg-white border-2 border-gray-300 focus:outline-none focus:border-black hover:border-primary;
+    }
+
+    button {
+        @apply flex flex-row items-center gap-2 p-2 hover:bg-primary hover:text-secondary hover:fill-secondary;
+    }
+}
+
+@layer components {
+
+}
