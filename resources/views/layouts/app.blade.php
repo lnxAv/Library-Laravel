@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ isset($title) ? $title : 'Laravel' }}</title>
+        <title>{{ isset($title) ? 'Library::' . $title : 'Library::Null' }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

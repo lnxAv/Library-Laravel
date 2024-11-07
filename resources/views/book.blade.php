@@ -1,9 +1,13 @@
 @extends('layouts.app')
 
+@php
+    $title = $book->title;
+@endphp
+
 @section('content')
     <div class="w-full flex flex-row justify-end p-2">
         <a href="/" class="w-1/3 flex flex-row items-center justify-start gap-2 p-2 border border-primary hover:bg-primary hover:text-secondary hover:fill-secondary">
-            < Retour
+            < {{ __('book.actions.back') }}
         </a>
     </div>
     <div class="relative flex flex-row items-start justify-between p-2 gap-7">
@@ -23,7 +27,7 @@
         <div class="flex-1 flex flex-col h-fill border border-primary">
             <div class="border-b border-primary">
                 <h3 class="px-2">
-                    //__Informations
+                    {{ __('book.informations') }}
                 </h3>
             </div>
             <div class="flex-1 p-2">
@@ -31,7 +35,7 @@
                     @if($book->year)
                         <li>
                             <div class="flex flex-row items-center justify-between">
-                                <p>::Year</p>
+                                <p>::{{ __('book.year') }}</p>
                                 <div class="flex-1 self-end border-b border-dotted border-primary"></div>
                                 <p> {{ $book->year }} </p>
                             </div>
@@ -40,7 +44,7 @@
                     @if($book->subtitle)
                         <li>
                             <div class="flex flex-row items-center justify-between">
-                                <p>::Subtitle</p>
+                                <p>::{{ __('book.subtitle') }}</p>
                                 <div class="flex-1 self-end border-b border-dotted border-primary"></div>
                                 <p> {{ $book->subtitle }} </p>
                             </div>
@@ -49,7 +53,7 @@
                     @if($book->publisher)
                         <li>
                             <div class="flex flex-row items-center justify-between">
-                                <p>::Publisher</p>
+                                <p>::{{ __('book.publisher') }}</p>
                                 <div class="flex-1 self-end border-b border-dotted border-primary"></div>
                                 <p> {{ $book->publisher }} </p>
                             </div>
@@ -58,7 +62,7 @@
                     @if($book->published)
                         <li>
                             <div class="flex flex-row items-center justify-between">
-                                <p>::Published</p>
+                                <p>::{{ __('book.published') }}</p>
                                 <div class="flex-1 self-end border-b border-dotted border-primary"></div>
                                 <p> {{ $book->published }} </p>
                             </div>
@@ -67,7 +71,7 @@
                     @if($book->pages)
                         <li>
                             <div class="flex flex-row items-center justify-between">
-                                <p>::Pages</p>
+                                <p>::{{ __('book.pages') }}</p>
                                 <div class="flex-1 self-end border-b border-dotted border-primary"></div>
                                 <p> {{ $book->pages }} </p>
                             </div>
@@ -76,7 +80,7 @@
                     @if($book->price)
                         <li>
                             <div class="flex flex-row items-center justify-between">
-                                <p>::Price</p>
+                                <p>::{{ __('book.price') }}</p>
                                 <div class="flex-1 self-end border-b border-dotted border-primary"></div>
                                 <p> {{ $book->price }} </p>
                             </div>
@@ -85,7 +89,7 @@
                     @if ($book->updateDate)
                         <li>
                             <div class="flex flex-row items-center justify-between">
-                                <p>::Update date</p>
+                                <p>::{{ __('book.updateDate') }}</p>
                                 <div class="flex-1 self-end border-b border-dotted border-primary"></div>
                                 <p> {{ $book->updateDate }} </p>
                             </div>
@@ -102,7 +106,7 @@
             <div>
                 <div class="border border-primary">
                     <h3 class="px-2">
-                        //__Author
+                        //__{{ __('book.author') }}
                     </h3>
                 </div>
                 <div class="relative flex flex-col items-center justify-center w-full">

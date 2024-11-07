@@ -3,9 +3,9 @@
 @section('content')
     <div class="w-2/3 m-auto flex flex-col items-center justify-center p-2">
         <div class="w-full flex flex-row items-center justify-between p-2">
-            <h3 class="text-left"> Book Form </h3>
+            <h3 class="text-left"> {{ __('form.title') }} </h3>
             <button id="fill-form" class="flex flex-row items-center gap-2 p-2 hover:bg-primary hover:text-secondary hover:fill-secondary">
-                + Fill Form
+                + {{ __('form.fill') }}
             </button>
         </div>
         <div id='form-list' class="w-full grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] grid-auto-rows-min gap-4">
@@ -21,7 +21,7 @@
                 <input id="description" type="textarea" name="description" placeholder="Description">
                 <input id="image" type="text" name="image" placeholder="Image">
                 <input id="price" type="text" name="price" placeholder="Price">
-                <button type="submit">Submit</button>
+                <button type="submit">{{ __('actions.submit') }}</button>
             </form>
         </div>
     </div>
