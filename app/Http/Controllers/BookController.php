@@ -53,9 +53,17 @@ class BookController extends FileController
         return apiResponder(function () use ($request) {
             $data = $this->getFileData();
             $order = $request->order;
+            $today = date_create();
+            // if is 10 days old do not show
+            $data =array_filter($data, function ($book) use ($today) {
+                $date = date_create($book['updateDate']);
+                $diff = date_diff($today, $date);
+                // if diff is less than 10 days
+                return $diff->days <= 10;
+
+            });
             if($order === 'year'){
                 uasort($data, function($a, $b) {
-                    info(strtotime($a['updateDate']));
                     return strtotime($a['updateDate']) - strtotime($b['updateDate']);
                 });
             }
