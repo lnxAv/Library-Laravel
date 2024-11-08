@@ -64,7 +64,8 @@ class BookController extends FileController
             });
             if($order === 'year'){
                 uasort($data, function($a, $b) {
-                    return strtotime($a['updateDate']) - strtotime($b['updateDate']);
+                    // sort DESC
+                    return strtotime($b['updateDate']) - strtotime($a['updateDate']);
                 });
             }
             return $data;

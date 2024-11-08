@@ -15,12 +15,13 @@ class Message extends Model
     ];
     protected $guarded = [
         "id" => '',
+        "createdAt" => '',
     ];
 
-    public function __construct($id, $obj){
-        info($id);
+    public function __construct($id, $createdAt, $obj){
         $this->guarded = [
             "id" => $id,
+            "createdAt" => $createdAt,
         ];
         $this->fillable = [
             "nom" => $obj['nom'],
@@ -34,6 +35,7 @@ class Message extends Model
     {
         return [
             "id" => $this->guarded['id'],
+            "createdAt" => $this->guarded['createdAt'],
             "nom" => $this->fillable['nom'],
             "email" => $this->fillable['email'],
             "subject" => $this->fillable['subject'],

@@ -14,6 +14,10 @@ class MessagesController extends FileController
     {
         return apiResponder(function () use ($request) {
             $data = $this->getFileData();
+            // sort DESC
+            uasort($data, function($a, $b) {
+                return strtotime($b['createdAt']) - strtotime($a['createdAt']);
+            });
             return $data;
         });
     }
@@ -28,10 +32,11 @@ class MessagesController extends FileController
                 'message' => 'required|string|max:255',
             ];
             $validator = Validator::make($request->json()->all(), $rules);
-            info($request->json()->all());
             if ($validator->passes()) {
                 $id = uniqid('message-');
-                $message = new Message($id, $request->json()->all());
+                $today = date('Y/m/d H:i:s');
+                $req = $request->json()->all();
+                $message = new Message($id, $today, $req);
                 $data = $this->getFileData();
                 $data[$id] = $message->toArray();
                 $this->putFileData($data);

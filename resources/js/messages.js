@@ -49,7 +49,7 @@ function showMessages(data){
                     <div class='flex flex-row item-center border-b border-primary p-2 gap-2'>
                         <div class='flex flex-col flex-1'>
                             <p>> ${message.nom}</p>
-                            <p class='opacity-50'>::${message.email}::</p>
+                            <p class='opacity-50'>::${message.email}::${message.createdAt}</p>
                         </div>
                         <div>
                             <button data-message-id='${message.id}'>x</button>
