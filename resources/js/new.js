@@ -43,7 +43,7 @@ function displayBooks(books) {
             bookCard.href = `/book/${isbn}`;
             bookCard.innerHTML = /*html*/ `
             <div class="text-xs text-left w-full opacity-50 px-2">
-                <p>u::${book.updateDate}</p>
+                <p>::${book.updateDate}</p>
             </div>
             <div class="flex flex-col items-center gap-2">
                 <img src="placeholder.webp" alt="${book.title}" class="w-full h-40 cursor-pointer">
