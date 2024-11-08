@@ -9,7 +9,7 @@
         <h3> {{ __('new.title') }} </h3>
     </div>
 
-    <div class="w-2/3 m-auto flex flex-col items-center justify-center p-2">
+    <div class="relative flex flex-col items-center justify-center w-2/3 p-2 m-auto">
         <div id='books-list' class="w-full grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] grid-auto-rows-min gap-4 ">
         </div>
     </div>
