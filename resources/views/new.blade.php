@@ -5,7 +5,7 @@
 @endphp
 
 @section('content')
-    <div class="flex flex-col items-center justify-center">
+    <div class="w-2/3 m-auto flex flex-col items-start justify-center p-2">
         <h3> {{ __('new.title') }} </h3>
     </div>
 
