@@ -5,7 +5,9 @@
 @endphp
 
 @section('content')
-    <div class="w-full flex flex-row justify-end p-2">
+    <div class="w-full flex flex-row justify-between p-2 gap-4">
+        <div class="border-4 border-primary flex-1 special-bg-diag" >
+        </div>
         <a href="/" class="w-1/3 flex flex-row items-center justify-start gap-2 p-2 border border-primary hover:bg-primary hover:text-secondary hover:fill-secondary">
             < {{ __('book.actions.back') }}
         </a>
@@ -27,7 +29,7 @@
         <div class="flex-1 flex flex-col h-fill border border-primary">
             <div class="border-b border-primary">
                 <h3 class="px-2">
-                    {{ __('book.informations') }}
+                    // {{ __('book.informations') }}
                 </h3>
             </div>
             <div class="flex-1 p-2">
@@ -106,7 +108,7 @@
             <div>
                 <div class="border border-primary">
                     <h3 class="px-2">
-                        //__{{ __('book.author') }}
+                        // {{ __('book.author') }}
                     </h3>
                 </div>
                 <div class="relative flex flex-col items-center justify-center w-full">
