@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="flex flex-col items-center justify-center">
-        <form id='search-results' class="flex flex-no-wrap flex-row items-center gap-4" action="handleBookFetch" method="GET">
+        <form id='search-results' class="flex flex-row flex-no-wrap items-center gap-4" action="handleBookFetch" method="GET">
             <div class="flex flex-row items-center gap-2">
                 <input form='search-result' id="search-input" type="text" name="r" placeholder="{{ __('home.search-placeholder') }}">
                 <svg width="19" height="19" viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg">
@@ -17,7 +17,7 @@
             </div>
             <div>
                 <a href="{{ route('form-book') }}" class="flex flex-row items-center gap-2 p-2 border border-primary hover:bg-primary hover:text-secondary hover:fill-secondary">
-                    +
+                    {{ __('home.actions.add') }}
                     <svg width="35" height="21" viewBox="0 0 35 21" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3.18182 0.5H15.9091V2.72222H3.18182V16.0556H15.9091V2.72222H19.0909V16.0556H31.8182V2.72222H19.0909V0.5H35V18.2778H19.0909V20.5H15.9091V18.2778H0V0.5H3.18182ZM28.6364 8.27778H22.2727V10.5H28.6364V8.27778ZM22.2727 4.94444H28.6364V7.16667H22.2727V4.94444ZM25.4545 11.6111H22.2727V13.8333H25.4545V11.6111Z"/>
                     </svg>
@@ -26,7 +26,7 @@
         </form>
     </div>
 
-    <div class="w-2/3 m-auto flex flex-col items-center justify-center p-2">
+    <div class="flex flex-col items-center justify-center w-2/3 p-2 m-auto">
         <div id='books-list' class="relative w-full grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] grid-auto-rows-min gap-4 ">
         </div>
     </div>

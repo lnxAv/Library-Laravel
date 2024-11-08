@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="w-2/3 m-auto flex flex-col items-center justify-center p-2">
-        <div class="w-full flex flex-row items-center justify-between p-2">
+    <div class="flex flex-col items-center justify-center w-2/3 p-2 m-auto">
+        <div class="flex flex-row items-center justify-between w-full p-2">
             <h3 class="text-left"> {{ __('form.title') }} </h3>
             <button id="fill-form" class="flex flex-row items-center gap-2 p-2 hover:bg-primary hover:text-secondary hover:fill-secondary">
                 + {{ __('form.fill') }}
@@ -21,7 +21,7 @@
                 <input id="description" type="textarea" name="description" placeholder="Description">
                 <input id="image" type="text" name="image" placeholder="Image">
                 <input id="price" type="text" name="price" placeholder="Price">
-                <button type="submit">{{ __('actions.submit') }}</button>
+                <button type="submit">{{ __('form.actions.submit') }}</button>
             </form>
         </div>
     </div>

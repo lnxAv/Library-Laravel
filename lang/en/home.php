@@ -6,5 +6,8 @@ return [
     "search-button" => "Search",
     "year-placeholder" => "Year",
     "year-button" => "Search",
-    "button" => "Search"
+    "button" => "Search",
+    "actions" => [
+        "add" => "New"
+    ]
 ];
