@@ -11,7 +11,6 @@ class ViewController
 
     public function __construct()
     {
-        $this->_BookController = new BookController();
     }
 
     public function index()
@@ -40,10 +39,7 @@ class ViewController
     }
 
     public function book(Request $request){
-        $isbn = $request->isbn;
-        $data = $this->_BookController->getFileData();
-        $book = new Book($data[$isbn]);
-        return view('book', ['book' => $book]);
+        return view('book');
     }
 }
 

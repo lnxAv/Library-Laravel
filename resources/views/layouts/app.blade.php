@@ -16,7 +16,7 @@
         @endif
         @yield('scripts')
     </head>
-    <body class="relative flex flex-col min-h-screen font-vcr">
+    <body class="relative flex flex-col min-h-screen font-vcr bg-secondary">
         @include('layouts.partials._header')
         <main class="min-h-full mt-6 h-fill">
             @yield('content')

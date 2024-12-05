@@ -20,7 +20,7 @@
     input[type="email"],
     input[type="number"],
     textarea {
-        @apply relative px-4 py-2 rounded-md text-sm font-medium text-left text-black bg-white border-2 border-gray-300 focus:outline-none focus:border-black hover:border-primary;
+        @apply relative px-4 py-2 rounded-md text-sm font-medium text-left text-primary bg-secondary border-2 border-gray-300 focus:outline-none focus:border-primary hover:border-primary;
     }
 
     button {

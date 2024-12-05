@@ -15,9 +15,15 @@
     <div class="relative flex flex-row items-start justify-between p-2 gap-7">
         <div class="flex-1 flex flex-col items-center justify-center w-auto">
             <img src="/placeholder.webp" alt="{{ $book->title }}" class="w-full h-40 cursor-pointer object-cover">
-            <h1 class="text-left w-full text-nowrap">
-                > {{ $book->title }}
-            </h1>
+            <div class="flex flex-row items-end gap-8">
+                <h1 class="text-left w-full text-nowrap">
+                    > {{ $book->title }}
+                </h1>
+                <p class="text-left w-full text-nowrap">
+                    {{ $book->price }}$
+                </p>
+            </div>
+
         </div>
         <div class="flex flex-col w-full max-w-full h-full overflow-x-hidden overflow-y-auto">
             <p class="text-left w-full max-w-full h-full break-words">
@@ -43,57 +49,12 @@
                             </div>
                         </li>
                     @endif
-                    @if($book->subtitle)
-                        <li>
-                            <div class="flex flex-row items-center justify-between">
-                                <p>::{{ __('book.subtitle') }}</p>
-                                <div class="flex-1 self-end border-b border-dotted border-primary"></div>
-                                <p> {{ $book->subtitle }} </p>
-                            </div>
-                        </li>
-                    @endif
-                    @if($book->publisher)
-                        <li>
-                            <div class="flex flex-row items-center justify-between">
-                                <p>::{{ __('book.publisher') }}</p>
-                                <div class="flex-1 self-end border-b border-dotted border-primary"></div>
-                                <p> {{ $book->publisher }} </p>
-                            </div>
-                        </li>
-                    @endif
-                    @if($book->published)
-                        <li>
-                            <div class="flex flex-row items-center justify-between">
-                                <p>::{{ __('book.published') }}</p>
-                                <div class="flex-1 self-end border-b border-dotted border-primary"></div>
-                                <p> {{ $book->published }} </p>
-                            </div>
-                        </li>
-                    @endif
                     @if($book->pages)
                         <li>
                             <div class="flex flex-row items-center justify-between">
                                 <p>::{{ __('book.pages') }}</p>
                                 <div class="flex-1 self-end border-b border-dotted border-primary"></div>
                                 <p> {{ $book->pages }} </p>
-                            </div>
-                        </li>
-                    @endif
-                    @if($book->price)
-                        <li>
-                            <div class="flex flex-row items-center justify-between">
-                                <p>::{{ __('book.price') }}</p>
-                                <div class="flex-1 self-end border-b border-dotted border-primary"></div>
-                                <p> {{ $book->price }} </p>
-                            </div>
-                        </li>
-                    @endif
-                    @if ($book->updateDate)
-                        <li>
-                            <div class="flex flex-row items-center justify-between">
-                                <p>::{{ __('book.updateDate') }}</p>
-                                <div class="flex-1 self-end border-b border-dotted border-primary"></div>
-                                <p> {{ $book->updateDate }} </p>
                             </div>
                         </li>
                     @endif
